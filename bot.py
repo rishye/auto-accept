@@ -2,6 +2,7 @@ import os
 import logging
 import json
 import asyncio
+asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
 from datetime import datetime
 from pymongo import MongoClient
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -12,8 +13,6 @@ from telegram.ext import (
     CallbackQueryHandler,
     ContextTypes,
 )
-import asyncio
-asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
 
 
 # ─── CONFIG ───────────────────────────────────────────
