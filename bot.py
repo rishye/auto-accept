@@ -17,7 +17,7 @@ from telegram.ext import (
 BOT_TOKEN = "8905275970:AAEo7yqdMpZ6g_yTJQ4comPVQZi_4VVcw54"
 BOT_CREATOR_ID = 7763689060          # 🔴 YOUR Telegram User ID
 BOT_USERNAME = "AutoReqAccept_2bot"    # Bot username without @
-MONGO_URI = "mongodb+srv://saminsumesh02_db_user:<saminsumesh02_db_user@cluster0.ao0w9kz.mongodb.net/?appName=Cluster0"
+MONGO_URI = "mongodb+srv://saminsumesh02_db_user:saminsumesh02_db_user@cluster0.ao0w9kz.mongodb.net/?appName=Cluster0"
 
 # ─── LOGGING ──────────────────────────────────────────
 logging.basicConfig(
