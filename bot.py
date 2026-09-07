@@ -2,7 +2,6 @@ import os
 import logging
 import json
 import asyncio
-asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
 from datetime import datetime
 from pymongo import MongoClient
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -412,7 +411,9 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ─── MAIN ─────────────────────────────────────────────
 
-def main():
+# ─── MAIN ─────────────────────────────────────────────
+
+async def main_async():
     init_db()
     application = Application.builder().token(BOT_TOKEN).build()
 
@@ -427,7 +428,13 @@ def main():
     application.add_handler(ChatJoinRequestHandler(chat_join_request))
 
     logger.info("🤖 Bot started!")
-    application.run_polling(allowed_updates=Update.ALL_TYPES)
+    await application.initialize()
+    await application.start()
+    await application.updater.start_polling()
+    
+    # Keep running forever
+    await asyncio.Event().wait()
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main_async())
+
