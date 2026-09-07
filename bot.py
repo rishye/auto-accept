@@ -12,6 +12,9 @@ from telegram.ext import (
     CallbackQueryHandler,
     ContextTypes,
 )
+import asyncio
+asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+
 
 # ─── CONFIG ───────────────────────────────────────────
 BOT_TOKEN = "8905275970:AAEo7yqdMpZ6g_yTJQ4comPVQZi_4VVcw54"
